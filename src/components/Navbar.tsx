@@ -1,9 +1,10 @@
-import React from 'react'
+
 function Navbar() {
   return (
     <>
     <div className='w-screen bg-red-400 flex h-32 px-12 py-8 justify-between red'>
-        <div><img src="" alt="logo" /></div>
+       {/* FUCKER DONT LEAVE SRC EMPTY NIGGA GETTING ERROR*/}
+        {/* <div><img src="" alt="logo" /></div> */}
             <div className='flex'>
                 <ul className='flex gap-7 py-2 mr-6'>
                     <li><a href="">Photography</a></li>
