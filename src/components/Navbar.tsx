@@ -1,20 +1,36 @@
+'use client';
 
-function Navbar() {
+import React from 'react';
+import { Instagram, Facebook, Twitter } from 'lucide-react'; // or use your preferred icon lib
+
+const Navbar = () => {
   return (
-    <>
-    <div className='w-screen bg-red-400 flex h-32 px-12 py-8 justify-between red'>
-            <div className='flex'>
-                <ul className='flex gap-7 py-2 mr-6'>
-                    <li><a href="">Photography</a></li>
-                    <li><a href="">Films</a></li>
-                    <li><a href="">Contact Us</a></li>
-                    <li><a href="">More</a></li>
-                </ul>
-                <button type='button' className='bg-black rounded h-12 px-3'>Get in touch</button>
-            </div>
-    </div>
-    </>
-  )
-}
+    <header className="absolute top-0 left-0 right-0 z-50 px-8 py-6 flex justify-between items-center text-white">
+      {/* Logo */}
+      <div className="relative text-5xl font-serif leading-none tracking-tight">
+        <span className="block">HOTC</span>
+      </div>
 
-export default Navbar
+      {/* Center Nav */}
+      <nav className="hidden lg:flex items-center space-x-8 text-sm font-light">
+        <a href="#" className="hover:underline">Photography</a>
+        <a href="#" className="hover:underline">Films</a>
+        <a href="#" className="hover:underline">Contact Us</a>
+        <a href="#" className="hover:underline">Editorial</a>
+        <a href="#" className="hover:underline">More</a>
+      </nav>
+
+      {/* Right Icons */}
+      <div className="flex items-center space-x-4">
+        <a href="#"><Instagram size={16} className="text-white" /></a>
+        <a href="#"><Facebook size={16} className="text-white" /></a>
+        <a href="#"><Twitter size={16} className="text-white" /></a>
+        <button className="ml-4 bg-amber-500 text-black px-4 py-2 text-sm font-medium tracking-wide rounded hover:bg-gold/80 transition">
+          Get In Touch
+        </button>
+      </div>
+    </header>
+  );
+};
+
+export default Navbar;
