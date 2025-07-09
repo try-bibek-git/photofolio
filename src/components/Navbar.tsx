@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { Instagram, Facebook, Twitter } from 'lucide-react'; // or use your preferred icon lib
 
 const Navbar = () => {

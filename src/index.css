@@ -1,8 +1,41 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/Fonts/Playfair.woff2') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Garamond Pro';
+  src: url('/Fonts/AGaramondPro-Regular.otf') format('opentype');
+  font-weight: 300 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Garamond Pro';
+  src: url('/Fonts/AGaramondPro-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Garamond Pro';
+  src: url('/Fonts/AGaramondPro-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 @theme {
-  --font-base: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+--font-base: 'Garamond Pro', Georgia, serif;
+  --font-sans: 'Playfair Custom', 'Inter', sans-serif;
 
   --color-background: #f3ece4;
   --color-text: #111111;
