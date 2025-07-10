@@ -9,21 +9,24 @@ const CTA = () => {
           "url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=1887&auto=format&fit=crop')",
       }}
     >
-      {/* Overlay */}
+
       <div className="absolute inset-0 bg-black/20 z-0" />
 
-      {/* Content Container */}
       <div className="relative z-10 container mx-auto px-6 h-full flex items-center">
         <div className="max-w-2xl">
-          {/* Main Heading */}
-          <h1 className="text-[3rem] md:text-[4rem] leading-tight font-[400] font-[--font-base] text-white mb-8 tracking-wide italic">
+          <h1
+            className="text-[3rem] md:text-[4rem] leading-tight  text-white mb-8 tracking-wide "
+            style={{ fontFamily: 'var(--font-heading)',fontWeight: 400 }}
+          >
             FINE-ART <br />
-            <span className="not-italic font-[700]">CLASS</span>
+            <span className="font-[600]">CLASS</span>
           </h1>
 
-          {/* Description */}
-          <div className="mb-10 text-[0.9rem] leading-relaxed text-white/90 space-y-4 font-[200] font-[--font-sans]">
-            <p >
+          <div
+            className="mb-10 text-[13px] leading-relaxed text-white/90 space-y-4"
+            style={{ fontFamily: 'var(--font-body)' }}
+          >
+            <p>
               Ibrida is our finest offering with fine art editorial style photography led by Siddharth Sharma,
               founder of House On The Clouds. The essence of Ibrida is to create photographs that stand the test of
               time. The classic, non-intrusive approach of documenting the in-between moments of your life with
@@ -32,15 +35,20 @@ const CTA = () => {
             </p>
           </div>
 
-          {/* CTA Button */}
+
           <Link
             to="https://ibrida.co"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-[--color-accent] text-white text-sm tracking-wide uppercase font-[--font-base] hover:bg-white hover:text-black transition-colors duration-300"
+            className="inline-block px-8 py-6 rounded-md bg-[#a28a56] text-[13px] text-white font-medium tracking-normal"
+            style={{
+              fontFamily: 'var(--font-base)',
+              textTransform: 'none',          
+            }}
           >
-            Visit Ibrida.Co
+            Visit Ibtida.Co
           </Link>
+
         </div>
       </div>
     </section>

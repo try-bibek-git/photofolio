@@ -2,16 +2,32 @@
 
 @font-face {
   font-family: 'Playfair Display';
-  src: url('/Fonts/Playfair.woff2') format('opentype');
-  font-weight: 400;
+  src: url('/Fonts/PlayfairDisplay.ttf') format('truetype'); 
+  font-weight: 100 900; 
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/Fonts/PlayfairDisplay-Italic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/Fonts/PlayfairDisplay-MediumItalic.ttf') format('truetype');
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Garamond Pro';
-  src: url('/Fonts/AGaramondPro-Regular.otf') format('opentype');
-  font-weight: 300 400;
+  src: url('/Fonts/AGaramondPro-Regular.woff2') format('opentype');
+  font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
@@ -34,8 +50,8 @@
 
 
 @theme {
---font-base: 'Garamond Pro', Georgia, serif;
-  --font-sans: 'Playfair Custom', 'Inter', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Garamond Pro', serif;
 
   --color-background: #f3ece4;
   --color-text: #111111;
