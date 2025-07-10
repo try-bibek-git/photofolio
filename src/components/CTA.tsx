@@ -37,7 +37,7 @@ const CTA = () => {
 
 
           <Link
-            to="https://ibrida.co"
+            to="https://t3thetimelesstales.com"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-6 rounded-md bg-[#a28a56] text-[13px] text-white font-medium tracking-normal"
@@ -46,7 +46,7 @@ const CTA = () => {
               textTransform: 'none',          
             }}
           >
-            Visit Ibtida.Co
+            Visit www.co
           </Link>
 
         </div>
