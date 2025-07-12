@@ -1,9 +1,11 @@
+/* Load Tailwind */
 @import "tailwindcss";
 
+/* === Custom Fonts === */
 @font-face {
   font-family: 'Playfair Display';
-  src: url('/Fonts/PlayfairDisplay.ttf') format('truetype'); 
-  font-weight: 100 900; 
+  src: url('/Fonts/PlayfairDisplay.ttf') format('truetype');
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
@@ -48,84 +50,159 @@
   font-display: swap;
 }
 
-
-@theme {
+/* === CSS Variables / Theme === */
+@layer base {
+  :root {
+  /* Fonts */
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Garamond Pro', serif;
 
-  --color-background: #f3ece4;
-  --color-text: #111111;
-  --color-accent: #c1a378;
-  --color-muted: #555555;
+  /* Colors based on your palette screenshots */
+  --color-background: #F0E9E0;       /* Creamy background */
+  --color-text: #000000;             /* Main text - Black */
+  --color-accent: #B49E64;           /* Warm gold accent */
+  --color-muted: #736645;            /* Muted brownish tone */
 
+  /* Additional brand colors */
+  --color-brown1: #736645;
+  --color-brown2: #A18E5E;
+  --color-gold: #B49E64;
+  --color-white: #FFFFFF;
+  --color-purple: #5D2DE6;
+  --color-gray: #343436;
+
+  /* Border radius */
   --radius: 0.5rem;
 }
 
-:root {
-  font-family: var(--font-base);
-  line-height: 1.6;
-  font-weight: 400;
-  letter-spacing: 0.02em;
 
-  color: var(--color-text);
-  background-color: var(--color-background);
+  *, *::before, *::after {
+    @apply border-neutral-200;
+  }
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[--color-background] text-[--color-text];
+    font-family: var(--font-body);
+    line-height: 1.6;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-size: 16px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    max-width: 65ch;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  button {
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: white;
+  }
+
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
 }
 
-body {
-  margin: 0;
-  background-color: var(--color-background);
-  color: var(--color-text);
-  font-size: 16px;
+/* === Components Layer === */
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 lg:py-24;
+  }
+
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  }
+
+  .heading-lg {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+  }
+
+  .heading-md {
+    @apply text-2xl md:text-3xl font-semibold tracking-tight;
+  }
+
+  .heading-sm {
+    @apply text-xl md:text-2xl font-semibold tracking-tight;
+  }
+
+  .body-lg {
+    @apply text-lg md:text-xl leading-relaxed;
+  }
+
+  .body-md {
+    @apply text-base md:text-lg leading-relaxed;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-[--color-accent] hover:bg-[--color-text] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[--color-muted] transition-all duration-200 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-[--color-accent] text-base font-medium rounded-lg text-[--color-accent] bg-white hover:bg-[--color-background] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[--color-muted] transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-neutral-200;
+  }
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-base);
-  font-weight: 600;
-  margin: 0;
-  line-height: 1.3;
-}
+/* === Utility Layer === */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#c1a378] to-[#a38e6e] bg-clip-text text-transparent;
+  }
 
-/* Paragraphs */
-p {
-  margin-bottom: 1rem;
-  max-width: 65ch;
-}
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 
-/* Links */
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 
-a:hover {
-  text-decoration: underline;
-}
-
-/* Selection */
-::selection {
-  background-color: var(--color-accent);
-  color: white;
-}
-
-/* Utilities */
-img {
-  max-width: 100%;
-  display: block;
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-}
-
-/* Remove outlines on non-keyboard focus */
-*:focus:not(:focus-visible) {
-  outline: none;
+  .bg-hero-pattern {
+    background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23f3f4f6" fill-opacity="0.4"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+  }
 }
