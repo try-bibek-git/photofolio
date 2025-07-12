@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 const CTA = () => {
   return (
     <section
-      className="relative w-full min-h-screen flex items-center bg-cover bg-center text-white"
+      className="relative w-full min-h-screen flex items-center bg-cover bg-center text-white px-20"
       style={{
         backgroundImage:
-          "url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=1887&auto=format&fit=crop')",
+          "url('https://cdn.pixabay.com/photo/2016/11/14/04/25/bride-1822587_1280.jpg')",
       }}
     >
 
@@ -16,8 +16,7 @@ const CTA = () => {
         <div className="max-w-2xl">
           <h1
             className="text-[3rem] md:text-[4rem] leading-tight  text-white mb-8 tracking-wide "
-            style={{ fontFamily: 'var(--font-heading)',fontWeight: 400 }}
-          >
+            style={{ fontFamily: 'var(--font-heading)',fontWeight: 400 }}>
             FINE-ART <br />
             <span className="font-[600]">CLASS</span>
           </h1>
@@ -40,13 +39,13 @@ const CTA = () => {
             to="https://t3thetimelesstales.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-6 rounded-md bg-[#a28a56] text-[13px] text-white font-medium tracking-normal"
+            className="inline-block px-7 py-4 rounded-md bg-[#a28a56] text-[15px] text-white font-medium tracking-normal"
             style={{
               fontFamily: 'var(--font-base)',
               textTransform: 'none',          
             }}
           >
-            Visit www.co
+            Visit The Timeless Tales
           </Link>
 
         </div>
