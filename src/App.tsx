@@ -21,10 +21,10 @@ function App() {
       
       <BentoGridGallery/>
       {/* <Bento2/> */}
-      <CTA/>
       <Slideshow/>
       <SoulCinemaSection/>
       <Services/>
+       <CTA/>
       <Footer/>
     </>
   )

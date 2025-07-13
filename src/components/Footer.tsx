@@ -1,3 +1,5 @@
+'use client';
+
 import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
