@@ -8,6 +8,7 @@ import Hero from './components/Hero'
 import Services from './components/Services'
 // import Bento2 from './components/Bento2'
 import Slideshow from './components/Slideshow'
+import SoulCinemaSection from './components/SoulCinemaSection'
 
 function App() {
   
@@ -22,6 +23,7 @@ function App() {
       {/* <Bento2/> */}
       <CTA/>
       <Slideshow/>
+      <SoulCinemaSection/>
       <Services/>
       <Footer/>
     </>

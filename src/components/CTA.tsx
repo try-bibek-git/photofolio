@@ -3,26 +3,28 @@ import { Link } from "react-router-dom";
 const CTA = () => {
   return (
     <section
-      className="relative w-full min-h-screen flex items-center bg-cover bg-center text-white px-20"
+      className="relative w-full min-h-screen flex items-center bg-cover bg-center text-white px-6 sm:px-12 md:px-16 lg:px-20"
       style={{
         backgroundImage:
           "url('https://cdn.pixabay.com/photo/2016/11/14/04/25/bride-1822587_1280.jpg')",
       }}
     >
-
+      {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/20 z-0" />
 
-      <div className="relative z-10 container mx-auto px-6 h-full flex items-center">
-        <div className="max-w-2xl">
+      {/* Content container */}
+      <div className="relative z-10 w-full max-w-6xl mx-auto flex items-center h-full">
+        <div className="max-w-3xl">
           <h1
-            className="text-[3rem] md:text-[4rem] leading-tight  text-white mb-8 tracking-wide "
-            style={{ fontFamily: 'var(--font-heading)',fontWeight: 400 }}>
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] leading-tight text-white mb-6 tracking-wide"
+            style={{ fontFamily: 'var(--font-heading)', fontWeight: 400 }}
+          >
             FINE-ART <br />
-            <span className="font-[600]">CLASS</span>
+            <span className="font-semibold">CLASS</span>
           </h1>
 
           <div
-            className="mb-10 text-[13px] leading-relaxed text-white/90 space-y-4"
+            className="mb-8 text-sm sm:text-[15px] leading-relaxed text-white/90 space-y-4"
             style={{ fontFamily: 'var(--font-body)' }}
           >
             <p>
@@ -34,20 +36,18 @@ const CTA = () => {
             </p>
           </div>
 
-
           <Link
             to="https://t3thetimelesstales.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-7 py-4 rounded-md bg-[#a28a56] text-[15px] text-white font-medium tracking-normal"
+            className="inline-block px-6 sm:px-7 py-3 sm:py-4 rounded-md bg-[#a28a56] text-sm sm:text-[15px] text-white font-medium tracking-normal"
             style={{
-              fontFamily: 'var(--font-base)',
-              textTransform: 'none',          
+              fontFamily: 'var(--font-body)',
+              textTransform: 'none',
             }}
           >
             Visit The Timeless Tales
           </Link>
-
         </div>
       </div>
     </section>
