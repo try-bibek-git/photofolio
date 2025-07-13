@@ -11,9 +11,9 @@ function Abstract() {
       }}></div>
         </div>
         <div className=' w-130  pt-10 '>
-            <h1 className='text-5xl absolute left-80 '>A MODERN AGE APPROACH <br /> <span className=" left-60 relative"><span className=' italic text-[#d19107]'>to an </span>AGE OLD TRADITION </span></h1>
+            <h1 className='text-5xl absolute left-80 '>A MODERN AGE APPROACH <br /> <span className=" left-50 relative"><span className=' italic text-[#d19107]'>to an </span>AGE OLD TRADITION </span></h1>
 
-            <p className='mt-35 italic text-[#7d5c15]'>Considered to be the epitome of Modern Photography and Filmmaking, TTT has transformed the Indian Wedding landscape on a regular basis. For almost a decade The Timeless tales has been creating photographs and films which are timeless and have been etched in memories of thousands of people forever. <br /> <br />Awarded as the Wedding Filmmaker of the year for four consecutive years at the Weddingsutra awards along with numerous other awards TTT is the only company listed on IMDB for its award winning films.</p>
+            <p className='mt-35 italic text-[#3d2b05]'>Considered to be the epitome of Modern Photography and Filmmaking, TTT has transformed the Indian Wedding landscape on a regular basis. For almost a decade The Timeless tales has been creating photographs and films which are timeless and have been etched in memories of thousands of people forever. <br /> <br />Awarded as the Wedding Filmmaker of the year for four consecutive years at the Weddingsutra awards along with numerous other awards TTT is the only company listed on IMDB for its award winning films.</p>
         </div>
         <div className=' w-110'>
             <div className=' w-100 h-120 bg-center bg-no-repeat bg-cover'

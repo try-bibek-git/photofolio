@@ -5,7 +5,9 @@ import CTA from './components/CTA'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import Services from './components/Services'
 // import Bento2 from './components/Bento2'
+import Slideshow from './components/Slideshow'
 
 function App() {
   
@@ -15,9 +17,12 @@ function App() {
       <Navbar/>
       <Hero/>
       <Abstract/>
-      <CTA/>
+      
       <BentoGridGallery/>
       {/* <Bento2/> */}
+      <CTA/>
+      <Slideshow/>
+      <Services/>
       <Footer/>
     </>
   )

@@ -85,7 +85,8 @@
   }
 
   body {
-    @apply bg-[--color-background] text-[--color-text];
+    /* @apply bg-[--color-background] text-[--color-text]; */
+    background-color: #F0E9E0;
     font-family: var(--font-body);
     line-height: 1.6;
     font-weight: 400;
