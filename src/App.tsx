@@ -9,6 +9,7 @@ import Services from './components/Services'
 // import Bento2 from './components/Bento2'
 import Recentworks from './components/Recentworks'
 import SoulCinemaSection from './components/SoulCinemaSection'
+import FeaturedWeddings from './components/FeaturedWeddings'
 
 function App() {
   
@@ -23,6 +24,7 @@ function App() {
       <Recentworks/>
       <SoulCinemaSection/>
       <Services/>
+      <FeaturedWeddings/>
       <CTA/>
       <Footer/>
     </>

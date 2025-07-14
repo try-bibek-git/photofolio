@@ -30,7 +30,7 @@ const CTA = () => {
           >
             <p>
               Ibrida is our finest offering with fine art editorial style photography led by Siddharth Sharma,
-              founder of House On The Clouds. The essence of Ibrida is to create photographs that stand the test of
+              founder of The Timeless Tales. The essence of Ibrida is to create photographs that stand the test of
               time. The classic, non-intrusive approach of documenting the in-between moments of your life with
               timeless and airy images that take you back in time. This is an exclusive package we offer to selected
               weddings only, and we believe this deserves a website of its own.
