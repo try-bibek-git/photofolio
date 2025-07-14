@@ -106,7 +106,11 @@ export default function RecentWorks() {
                 transform: `translateX(-${(currentIndex * 100) / events.length}%)`,
               }}
             >
-              {events.map((event, index) => (
+
+ 
+{/* {events.map((event, index) => () //warn "'index' is declared but its value is never read" */}
+
+              {events.map((event) => (
                 <div
                   key={event.id}
                   className="relative h-full flex-shrink-0"
