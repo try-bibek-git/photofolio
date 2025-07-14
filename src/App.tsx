@@ -7,7 +7,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
 // import Bento2 from './components/Bento2'
-import Slideshow from './components/Slideshow'
+import Recentworks from './components/Recentworks'
 import SoulCinemaSection from './components/SoulCinemaSection'
 
 function App() {
@@ -18,13 +18,12 @@ function App() {
       <Navbar/>
       <Hero/>
       <Abstract/>
-      
       <BentoGridGallery/>
       {/* <Bento2/> */}
-      <Slideshow/>
       <SoulCinemaSection/>
       <Services/>
-       <CTA/>
+      <Recentworks/>
+      <CTA/>
       <Footer/>
     </>
   )
