@@ -20,9 +20,9 @@ function App() {
       <Abstract/>
       <BentoGridGallery/>
       {/* <Bento2/> */}
+      <Recentworks/>
       <SoulCinemaSection/>
       <Services/>
-      <Recentworks/>
       <CTA/>
       <Footer/>
     </>
