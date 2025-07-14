@@ -146,7 +146,8 @@ const FeaturedWeddings: React.FC = () => {
             coupleNames: 'MAYA & ALEX',
             location: 'Santorini, Greece',
             imageUrl: 'https://picsum.photos/id/1016/800/450',
-            hasPlayButton: false,
+            videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+            hasPlayButton: true,
         },
         {
             coupleNames: 'ZINA & ZAIN',

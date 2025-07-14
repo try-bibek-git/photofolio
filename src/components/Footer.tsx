@@ -14,9 +14,9 @@ const Footer = () => {
             className="text-2xl sm:text-3xl leading-snug tracking-wide uppercase font-semibold"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            <span className="text-[--color-accent]">T</span>he <br />
-            <span className="text-[--color-accent]">T</span>imeless <br />
-            <span className="text-[--color-accent]">T</span>ales
+            <span className="text-[#9d700f]">T</span>he <br />
+            <span className="text-[#9d700f]">T</span>imeless <br />
+            <span className="text-[#9d700f]">T</span>ales
           </h1>
 
           <div className="flex items-center space-x-4 pt-1">

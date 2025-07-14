@@ -23,8 +23,8 @@ function App() {
       {/* <Bento2/> */}
       <Recentworks/>
       <SoulCinemaSection/>
-      <Services/>
       <FeaturedWeddings/>
+      <Services/>
       <CTA/>
       <Footer/>
     </>
