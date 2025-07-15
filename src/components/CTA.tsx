@@ -1,54 +1,88 @@
 'use client';
-import { Link } from "react-router-dom";
+
+import  { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const CTA = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from('.cta-heading', {
+        opacity: 0,
+        y: 60,
+        duration: 1.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.cta-heading',
+          start: 'top 80%',
+        },
+      });
+
+      gsap.from('.cta-description', {
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        delay: 0.3,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.cta-description',
+          start: 'top 80%',
+        },
+      });
+
+      gsap.from('.cta-button', {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        delay: 0.6,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.cta-button',
+          start: 'top 80%',
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
-      className="relative w-full min-h-screen flex items-center bg-cover bg-center text-white px-6 sm:px-12 md:px-16 lg:px-20"
+      ref={sectionRef}
+      className="relative w-full min-h-screen flex items-center justify-center bg-cover bg-center text-white px-6 sm:px-12 md:px-16 lg:px-20"
       style={{
         backgroundImage:
           "url('https://images.squarespace-cdn.com/content/v1/60b40cb3dd6dc9347755b5ab/1623453283834-GT9UR8BV9W7WXYQ4EPR6/V_KL9752.jpg?format=2500w')",
       }}
     >
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/20 z-0" />
+      <div className="absolute inset-0 bg-black/40 z-10" />
 
       {/* Content container */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto flex items-center h-full">
+      <div className="relative z-20 w-full max-w-6xl mx-auto">
         <div className="max-w-3xl">
-          <h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] leading-tight text-white mb-6 tracking-wide"
-            style={{ fontFamily: 'var(--font-heading)', fontWeight: 400 }}
-          >
-            FINE-ART <br />
-            <span className="font-semibold">CLASS</span>
+          <h1 className="cta-heading text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] leading-tight text-white mb-6 tracking-wide font-light">
+            The Timeless <span className="font-semibold">Tales</span>
           </h1>
 
-          <div
-            className="mb-8 text-sm sm:text-[15px] leading-relaxed text-white/90 space-y-4"
-            style={{ fontFamily: 'var(--font-body)' }}
-          >
+          <div className="cta-description mb-8 text-sm sm:text-[15px] leading-relaxed text-white/90 space-y-4 font-light">
             <p>
-              Ibrida is our finest offering with fine art editorial style photography led by Siddharth Sharma,
-              founder of The Timeless Tales. The essence of Ibrida is to create photographs that stand the test of
-              time. The classic, non-intrusive approach of documenting the in-between moments of your life with
-              timeless and airy images that take you back in time. This is an exclusive package we offer to selected
-              weddings only, and we believe this deserves a website of its own.
+              A modern approach to storytelling—crafted with artistry, emotion, and soul. The Timeless Tales is devoted to capturing love stories that feel as unforgettable as the moments themselves. With a blend of fine art and documentary style, every frame is designed to be as unique as the people in it. Celebrate your story through images that are genuine, timeless, and beautifully you.
             </p>
           </div>
 
-          <Link
-            to="https://t3thetimelesstales.com"
+          <a
+            href="https://t3thetimelesstales.com/book" // <-- Update to your real booking/contact page!
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-6 sm:px-7 py-3 sm:py-4 rounded-md bg-[#a28a56] text-sm sm:text-[15px] text-white font-medium tracking-normal"
-            style={{
-              fontFamily: 'var(--font-body)',
-              textTransform: 'none',
-            }}
+            className="cta-button inline-block px-8 py-4 rounded-md bg-[#a28a56] text-base sm:text-lg text-white font-medium tracking-wide transition-all duration-300 hover:bg-[#8f7649] hover:scale-105 hover:shadow-lg"
           >
-            Visit The Timeless Tales
-          </Link>
+            Book Now
+          </a>
         </div>
       </div>
     </section>

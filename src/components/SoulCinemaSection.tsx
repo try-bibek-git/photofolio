@@ -31,15 +31,16 @@ const SoulCinemaSection = () => {
 
   return (
     <section ref={sectionRef} className="relative z-10 bg-[--color-background]">
-      {/* Clip Path Container */}
       <div
-        className="relative w-full min-h-screen overflow-hidden"
+        className={
+          // Add responsive-clip for media query fallback below
+          "relative w-full min-h-[50vh] sm:min-h-[60vh] md:min-h-[80vh] lg:min-h-screen overflow-hidden responsive-clip"
+        }
         style={{
           clipPath: 'polygon(77% 19%, 99% 3%, 100% 4%, 100% 96%, 89% 86%, 20% 100%, 0 90%, 0 0)',
           WebkitClipPath: 'polygon(77% 19%, 99% 3%, 100% 4%, 100% 96%, 89% 86%, 20% 100%, 0 90%, 0 0)',
         }}
       >
-        {/* Responsive clip-path fallback for smaller screens */}
         <style>{`
           @media (max-width: 768px) {
             .responsive-clip {
@@ -49,7 +50,6 @@ const SoulCinemaSection = () => {
           }
         `}</style>
 
-        {/* Video Background */}
         <video
           className="absolute inset-0 w-full h-full object-cover grayscale"
           src="https://www.w3schools.com/html/mov_bbb.mp4"
@@ -59,20 +59,18 @@ const SoulCinemaSection = () => {
           playsInline
         />
 
-        {/* Overlay for better text visibility */}
         <div className="absolute inset-0 bg-black/40 z-10" />
 
-        {/* Text content */}
-        <div className="responsive-clip relative z-20 flex items-center justify-center h-full px-6 md:px-12 pt-32 pb-16 text-center">
-          <div ref={textRef} className="max-w-3xl">
+        <div className="relative z-20 flex items-center justify-center h-full px-4 md:px-12 pt-20 md:pt-32 pb-10 md:pb-16 text-center">
+          <div ref={textRef} className="max-w-2xl md:max-w-3xl mx-auto">
             <h2
-              className="text-white heading-xl mb-6 tracking-wide"
+              className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 tracking-wide font-bold"
               style={{ fontFamily: 'var(--font-heading)' }}
             >
               SOUL<span className="mx-2">+</span>CINEMA
             </h2>
             <p
-              className="body-md text-white/90 font-light"
+              className="text-base sm:text-lg md:text-xl text-white/90 font-light"
               style={{ fontFamily: 'var(--font-body)' }}
             >
               Every wedding is unique and so are our films. For past 8 years HOTC has set new benchmarks of

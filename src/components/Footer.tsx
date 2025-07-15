@@ -6,25 +6,25 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer className="bg-[--color-background] text-[--color-text] py-12 px-6 sm:px-10 lg:px-20 font-[--font-body]">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-y-10 md:gap-y-0">
+      <div className="container flex flex-col md:flex-row md:justify-between md:items-start gap-y-10 md:gap-y-0">
 
         {/* Left: Logo + Social */}
-        <div className="space-y-5 text-left">
+        <div className="flex-1 flex flex-col gap-7 min-w-[200px]">
           <h1
             className="text-2xl sm:text-3xl leading-snug tracking-wide uppercase font-semibold"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            <span className="text-[#9d700f]">T</span>he <br />
-            <span className="text-[#9d700f]">T</span>imeless <br />
-            <span className="text-[#9d700f]">T</span>ales
+            <span className="text-[--color-accent]">T</span>he <br />
+            <span className="text-[--color-accent]">T</span>imeless <br />
+            <span className="text-[--color-accent]">T</span>ales
           </h1>
-
-          <div className="flex items-center space-x-4 pt-1">
+          <div className="flex items-center space-x-5 pt-2">
             <a
               href="https://www.instagram.com/t3_thetimelesstales"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-80 transition"
+              aria-label="Instagram"
             >
               <Instagram className="h-5 w-5 text-[--color-text]" />
             </a>
@@ -33,6 +33,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-80 transition"
+              aria-label="Facebook"
             >
               <Facebook className="h-5 w-5 text-[--color-text]" />
             </a>
@@ -41,6 +42,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-80 transition"
+              aria-label="YouTube"
             >
               <Youtube className="h-5 w-5 text-[--color-text]" />
             </a>
@@ -48,11 +50,8 @@ const Footer = () => {
         </div>
 
         {/* Center: Location + Policy */}
-        <div
-          className="text-center md:text-left text-sm leading-relaxed space-y-2"
-          style={{ fontFamily: 'var(--font-body)' }}
-        >
-          <p className="text-[--color-muted]">Mumbai · Bangalore</p>
+        <div className="flex-1 flex flex-col justify-center items-start md:items-center text-left md:text-center text-sm leading-relaxed gap-3 mt-8 md:mt-0">
+          <p className="text-[--color-muted] font-[--font-body]">Mumbai &middot; Bangalore</p>
           <Link
             to="/privacy-policy"
             className="hover:underline text-[--color-text]"
@@ -62,13 +61,10 @@ const Footer = () => {
         </div>
 
         {/* Right: Contact Info */}
-        <div
-          className="text-right text-sm leading-relaxed space-y-2"
-          style={{ fontFamily: 'var(--font-body)' }}
-        >
+        <div className="flex-1 flex flex-col justify-center items-start md:items-end text-left md:text-right text-sm leading-relaxed gap-3 mt-8 md:mt-0">
           <p className="font-medium text-[--color-text]">+91 87218 82202</p>
           <a
-            href="mailto:hello@houseontheclouds.com"
+            href="mailto:hello@thetimelesstales.com"
             className="hover:underline text-[--color-text]"
           >
             hello@thetimelesstales.com

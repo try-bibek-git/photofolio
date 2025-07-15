@@ -1,10 +1,9 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Play } from 'lucide-react';
+import { Play, X } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import VideoModal from './VideoModal';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -69,7 +68,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
 
 const FeaturedWeddings: React.FC = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [currentVideo, setCurrentVideo] = useState<{
         url: string;
         coupleNames: string;
@@ -117,13 +116,26 @@ const FeaturedWeddings: React.FC = () => {
         return () => ctx.revert();
     }, []);
 
-    const openVideoModal = (videoUrl: string, coupleNames: string, location: string) => {
+    // Handle body scroll lock when popup is open
+    useEffect(() => {
+        if (isPopupOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isPopupOpen]);
+
+    const openVideoPopup = (videoUrl: string, coupleNames: string, location: string) => {
         setCurrentVideo({ url: videoUrl, coupleNames, location });
-        setIsModalOpen(true);
+        setIsPopupOpen(true);
     };
 
-    const closeVideoModal = () => {
-        setIsModalOpen(false);
+    const closeVideoPopup = () => {
+        setIsPopupOpen(false);
         setCurrentVideo(null);
     };
 
@@ -132,21 +144,21 @@ const FeaturedWeddings: React.FC = () => {
             coupleNames: 'TAMANA & DAN',
             location: 'Tuscany, Italy',
             imageUrl: 'https://picsum.photos/id/1011/800/450',
-            videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+            videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', 
             hasPlayButton: true,
         },
         {
             coupleNames: 'ALESIA & RAHUL',
             location: 'Amalfi Coast, Italy',
             imageUrl: 'https://picsum.photos/id/1015/800/450',
-            videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+            videoUrl: 'https://www.youtube.com/embed/zxNE4b8QyWk',
             hasPlayButton: true,
         },
         {
             coupleNames: 'MAYA & ALEX',
             location: 'Santorini, Greece',
             imageUrl: 'https://picsum.photos/id/1016/800/450',
-            videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+            videoUrl: 'https://youtube.com/embed/ZnUZ4AcyPXu1L1Ss',
             hasPlayButton: true,
         },
         {
@@ -190,7 +202,7 @@ const FeaturedWeddings: React.FC = () => {
                                 hasPlayButton={wedding.hasPlayButton}
                                 onPlayClick={
                                     wedding.hasPlayButton && wedding.videoUrl
-                                        ? () => openVideoModal(wedding.videoUrl!, wedding.coupleNames, wedding.location)
+                                        ? () => openVideoPopup(wedding.videoUrl!, wedding.coupleNames, wedding.location)
                                         : undefined
                                 }
                             />
@@ -199,15 +211,53 @@ const FeaturedWeddings: React.FC = () => {
                 </div>
             </section>
 
-            {/* Video Modal */}
-            {currentVideo && (
-                <VideoModal
-                    isOpen={isModalOpen}
-                    onClose={closeVideoModal}
-                    videoUrl={currentVideo.url}
-                    coupleNames={currentVideo.coupleNames}
-                    location={currentVideo.location}
-                />
+            {/* Video Iframe Popup */}
+            {isPopupOpen && currentVideo && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                    {/* Transparent Background Overlay */}
+                    <div 
+                        className="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-300"
+                        onClick={closeVideoPopup}
+                    />
+                    
+                    {/* Popup Container */}
+                    <div className="relative z-10 w-full max-w-4xl mx-auto">
+                        {/* Close Button */}
+                        <button
+                            onClick={closeVideoPopup}
+                            className="absolute -top-12 right-0 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-sm"
+                            aria-label="Close video"
+                        >
+                            <X className="w-6 h-6 text-white" />
+                        </button>
+
+                        {/* Video Container */}
+                        <div className="relative bg-black rounded-lg overflow-hidden shadow-2xl">
+                            {/* Video Title */}
+                            <div className="absolute top-0 left-0 right-0 z-10 bg-gradient-to-b from-black/80 to-transparent p-6">
+                                <h3 className="text-white text-2xl font-light tracking-wide mb-1">
+                                    {currentVideo.coupleNames}
+                                </h3>
+                                <p className="text-white/80 text-sm font-light">
+                                    {currentVideo.location}
+                                </p>
+                            </div>
+
+                            {/* Iframe */}
+                            <div className="relative aspect-video">
+                                <iframe
+                                    src={currentVideo.url}
+                                    title={`${currentVideo.coupleNames} wedding video`}
+                                    className="w-full h-full"
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             )}
         </>
     );
