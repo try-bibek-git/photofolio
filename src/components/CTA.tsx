@@ -7,7 +7,7 @@ const CTA = () => {
       className="relative w-full min-h-screen flex items-center bg-cover bg-center text-white px-6 sm:px-12 md:px-16 lg:px-20"
       style={{
         backgroundImage:
-          "url('https://cdn.pixabay.com/photo/2016/11/14/04/25/bride-1822587_1280.jpg')",
+          "url('https://images.squarespace-cdn.com/content/v1/60b40cb3dd6dc9347755b5ab/1623453283834-GT9UR8BV9W7WXYQ4EPR6/V_KL9752.jpg?format=2500w')",
       }}
     >
       {/* Dark overlay */}

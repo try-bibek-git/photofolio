@@ -6,7 +6,7 @@ import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
-// import Bento2 from './components/Bento2'
+import Bento2 from './components/Bento2'
 import Recentworks from './components/Recentworks'
 import SoulCinemaSection from './components/SoulCinemaSection'
 import FeaturedWeddings from './components/FeaturedWeddings'
@@ -20,7 +20,7 @@ function App() {
       <Hero/>
       <Abstract/>
       <BentoGridGallery/>
-      {/* <Bento2/> */}
+      <Bento2/>
       <Recentworks/>
       <SoulCinemaSection/>
       <FeaturedWeddings/>

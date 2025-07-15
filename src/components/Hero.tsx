@@ -14,7 +14,7 @@ function Hero() {
           style={{
             backgroundImage: 'url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png")',
             backgroundSize: '200% 200%',
-            opacity: '0', // Adjust opacity for stronger/weaker effect
+            opacity: '0.1', // Adjust opacity for stronger/weaker effect
             mixBlendMode: 'overlay' // Creates natural blending with background
           }}
         />
