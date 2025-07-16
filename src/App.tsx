@@ -1,4 +1,5 @@
 import './App.css'
+import { Routes, Route } from 'react-router-dom'
 import Abstract from './components/Abstract'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
@@ -11,11 +12,10 @@ import SoulCinemaSection from './components/SoulCinemaSection'
 import FeaturedWeddings from './components/FeaturedWeddings'
 import Testimonial from './components/Testimonial'
 import YouTube from './components/youtube'
+import AllEvents from './pages/allEvents'
 
 function App() {
-  
-
-  return (
+  const HomePage = () => (
     <>
       <Navbar/>
       <Hero/>
@@ -30,6 +30,13 @@ function App() {
       <Testimonial/>
       <Footer/>
     </>
+  );
+
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/allEvents" element={<AllEvents />} />
+    </Routes>
   )
 }
 

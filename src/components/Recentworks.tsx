@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 const events = [
   {
@@ -62,6 +63,7 @@ const events = [
 ]
 
 export default function RecentWorks() {
+  const navigate = useNavigate()
   const [currentIndex, setCurrentIndex] = useState(0)
   const [mounted, setMounted] = useState(false)
 
@@ -169,6 +171,16 @@ export default function RecentWorks() {
             </span>
           </div>
         </div>
+        {/* All events Button */}
+        <div className="flex justify-center relative">
+          <button 
+            onClick={() => navigate('/allEvents')}
+            className="mt-8 px-6 py-3 bg-[#b89766] text-white rounded-md font-medium hover:bg-[#937b56] transition-colors duration-300"
+          >
+            View All Events
+          </button>
+        </div>
+        
       </div>
     </section>
   )

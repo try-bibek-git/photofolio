@@ -1,6 +1,7 @@
 'use client';
 
 import { Instagram, Facebook, Youtube } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
 const Navbar = () => {
@@ -9,11 +10,13 @@ const Navbar = () => {
       
       {/* Logo */}
        <div>
-        <img
-          src={logo}
-          alt="T.T.T Logo"
-          className="h-10 w-auto md:h-16"
-        />
+        <Link to="/">
+          <img
+            src={logo}
+            alt="T.T.T Logo"
+            className="h-10 w-auto md:h-16 cursor-pointer"
+          />
+        </Link>
       </div>
 
       {/* Center Nav */}
@@ -45,7 +48,7 @@ const Navbar = () => {
         <button
           className="ml-4 px-5 py-2 rounded-md text-sm font-medium hover:bg-[--color-text] hover:text-white transition-all duration-200"
           style={{
-            backgroundColor: '#452f00',
+            backgroundColor: '#7a6734',
             color: 'white',
             fontFamily: 'var(--font-body)',
             letterSpacing: '0.03em',
