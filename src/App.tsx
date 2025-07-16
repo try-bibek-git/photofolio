@@ -13,7 +13,7 @@ import FeaturedWeddings from './components/FeaturedWeddings'
 import Testimonial from './components/Testimonial'
 import YouTube from './components/youtube'
 import AllEvents from './pages/allEvents'
-import Contact from './pages/contact'
+import Contact from './pages/contactus'
 
 function App() {
   const HomePage = () => (
