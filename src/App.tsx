@@ -38,7 +38,6 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/allEvents" element={<AllEvents />} />
       <Route path="/contact" element={<Contact />} />
-
     </Routes>
   )
 }
