@@ -30,6 +30,7 @@ function App() {
       <CTA/>
       <Testimonial/>
       <Footer/>
+      
     </>
   );
 
