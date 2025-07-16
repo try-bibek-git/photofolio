@@ -1,8 +1,9 @@
 'use client';
 
-import  { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -75,14 +76,24 @@ const CTA = () => {
             </p>
           </div>
 
-          <a
-            href="https://t3thetimelesstales.com/book" // <-- Update to your real booking/contact page!
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cta-button inline-block px-8 py-4 rounded-md bg-[#a28a56] text-base sm:text-lg text-white font-medium tracking-wide transition-all duration-300 hover:bg-[#8f7649] hover:scale-105 hover:shadow-lg"
-          >
-            Book Now
-          </a>
+          <div className="flex space-x-4">
+            <a
+              href="https://t3thetimelesstales.com/book"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-button inline-block px-8 py-4 rounded-md bg-[#a28a56] text-base sm:text-lg text-white font-medium tracking-wide transition-all duration-300 hover:bg-[#8f7649] hover:scale-105 hover:shadow-lg"
+            >
+              Book Now
+            </a>
+            <Link
+              to="/contact"
+              className="cta-button inline-block px-8 py-4 rounded-md border border-[--color-accent] bg-transparent text-[--color-accent] text-base sm:text-lg font-medium tracking-wide transition-all duration-300 hover:bg-[--color-accent] hover:text-white hover:scale-105 hover:shadow-lg"
+            >
+              Contact Us
+            </Link>
+
+
+          </div>
         </div>
       </div>
     </section>

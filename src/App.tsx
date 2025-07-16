@@ -13,6 +13,7 @@ import FeaturedWeddings from './components/FeaturedWeddings'
 import Testimonial from './components/Testimonial'
 import YouTube from './components/youtube'
 import AllEvents from './pages/allEvents'
+import Contact from './pages/contact'
 
 function App() {
   const HomePage = () => (
@@ -36,6 +37,8 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/allEvents" element={<AllEvents />} />
+      <Route path="/contact" element={<Contact />} />
+
     </Routes>
   )
 }
