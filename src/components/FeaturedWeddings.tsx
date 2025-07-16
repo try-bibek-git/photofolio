@@ -175,17 +175,17 @@ const FeaturedWeddings: React.FC = () => {
             <section ref={sectionRef} className="bg-[#F0E9E0] section-padding px-4">
                 <div className="container mx-auto">
                     {/* Heading */}
-                    <h2 className="section-heading text-4xl md:text-5xl font-light text-center text-gray-900 mb-4 tracking-wide">
+                    <h2 className="section-heading text-4xl md:text-5xl font-light text-center text-[gray-900] mb-4 tracking-wide">
                         A Glimpse into Their Stories
                     </h2>
 
                     {/* Description */}
                     <div className="section-description flex justify-center">
                         <div className="max-w-3xl text-center mb-16 space-y-5">
-                            <p className="text-gray-800 text-sm sm:text-base md:text-lg italic font-light leading-relaxed tracking-wide">
+                            <p className="text-[#613e07] text-sm sm:text-base md:text-lg italic font-light leading-relaxed tracking-wide">
                                 A peek into the cinematic stories we've crafted for couples around the world — emotional, real, and timeless. These films are more than documentation; they're heirlooms.
                             </p>
-                            <p className="text-gray-800 text-sm sm:text-base md:text-lg italic font-light leading-relaxed tracking-wide">
+                            <p className="text-[#613e07] text-sm sm:text-base md:text-lg italic font-light leading-relaxed tracking-wide">
                                 From cliffside vows in Santorini to intimate gardens in Tuscany, each film captures the heart of the moment in our signature visual poetry.
                             </p>
                         </div>

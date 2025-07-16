@@ -5,7 +5,7 @@ function Hero() {
     <>
       <section className="relative w-full min-h-screen bg-center bg-no-repeat bg-cover overflow-hidden" 
         style={{
-          backgroundImage: "url('https://cdn.pixabay.com/photo/2017/08/01/15/23/bride-2566244_1280.jpg')",
+          backgroundImage: "url('https://images.squarespace-cdn.com/content/v1/60b40cb3dd6dc9347755b5ab/3b5087c6-a3ed-4a4e-9617-8332c38ca134/SIDD8608+full+2.jpg?format=1500w')",
         }}>
         
         {/* Grainy Filter Overlay */}
@@ -14,7 +14,7 @@ function Hero() {
           style={{
             backgroundImage: 'url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png")',
             backgroundSize: '200% 200%',
-            opacity: '0.1', // Adjust opacity for stronger/weaker effect
+            opacity: '0.0', // Adjust opacity for stronger/weaker effect
             mixBlendMode: 'overlay' // Creates natural blending with background
           }}
         />

@@ -79,12 +79,12 @@ export default function Testimonial() {
   }
 
   return (
-    <section className="w-full h-screen  flex items-center justify-center p-8 md:p-16">
+    <section className="w-full h-screen  flex items-center justify-center p-8 md:p-16 relative overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4 tracking-wide">What Our Clients Say</h2>
-          <p className="text-gray-600 text-lg max-w-xl mx-auto font-light leading-relaxed">
+          <p className="text-[#613e07] text-lg max-w-xl mx-auto font-light leading-relaxed">
             Hear from couples who trusted us to capture their most precious moments
           </p>
         </div>

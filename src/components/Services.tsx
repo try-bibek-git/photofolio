@@ -66,12 +66,12 @@ export default function Services() {
   }
 
   return (
-    <section className="w-full h-screen bg-[#F0E9E0] flex items-center justify-center p-8 md:p-16">
+    <section className="w-full h-screen bg-[#F0E9E0] flex items-center justify-center p-8 md:p-16 relative overflow-hidden">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4 tracking-wide">Our Services</h2>
-          <p className="text-gray-600 text-lg max-w-xl mx-auto font-light leading-relaxed">
+          <p className="text-[#613e07] text-lg max-w-xl mx-auto font-light leading-relaxed">
             Capturing your most precious moments with elegance and grace
           </p>
         </div>

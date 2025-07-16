@@ -2,23 +2,24 @@
 
 import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-[--color-background] text-[--color-text] py-12 px-6 sm:px-10 lg:px-20 font-[--font-body]">
+    <footer className=" text-[--color-text] py-12 px-6 sm:px-10 lg:px-20 font-[--font-body]">
       <div className="container flex flex-col md:flex-row md:justify-between md:items-start gap-y-10 md:gap-y-0">
 
         {/* Left: Logo + Social */}
         <div className="flex-1 flex flex-col gap-7 min-w-[200px]">
-          <h1
-            className="text-2xl sm:text-3xl leading-snug tracking-wide uppercase font-semibold"
-            style={{ fontFamily: 'var(--font-heading)' }}
-          >
-            <span className="text-[--color-accent]">T</span>he <br />
-            <span className="text-[--color-accent]">T</span>imeless <br />
-            <span className="text-[--color-accent]">T</span>ales
-          </h1>
-          <div className="flex items-center space-x-5 pt-2">
+          <div className='relative'>
+        <img
+          src={logo}
+          alt="T.T.T Logo"
+          className="h-10 w-auto md:h-12"
+        />
+        <h1 className='text-sm pl-1.5'>The Timeless Tales</h1>
+      </div>
+          <div className="flex items-center space-x-5 pt-2 pl-5">
             <a
               href="https://www.instagram.com/t3_thetimelesstales"
               target="_blank"

@@ -89,7 +89,7 @@ export default function RecentWorks() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4 tracking-wide">Recent Works</h2>
-          <p className="text-gray-600 text-lg max-w-xl mx-auto font-light leading-relaxed">
+          <p className="text-[#875a17] text-lg max-w-xl mx-auto font-light leading-relaxed">
             A glimpse into our latest captured moments and celebrations
           </p>
         </div>

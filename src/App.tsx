@@ -10,6 +10,7 @@ import Recentworks from './components/Recentworks'
 import SoulCinemaSection from './components/SoulCinemaSection'
 import FeaturedWeddings from './components/FeaturedWeddings'
 import Testimonial from './components/Testimonial'
+import YouTube from './components/youtube'
 
 function App() {
   
@@ -23,6 +24,7 @@ function App() {
       <Recentworks/>
       <SoulCinemaSection/>
       <FeaturedWeddings/>
+      <YouTube/>
       <Services/>
       <CTA/>
       <Testimonial/>

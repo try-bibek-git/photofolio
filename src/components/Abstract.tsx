@@ -2,7 +2,7 @@
 
 function Abstract() {
   return (
-    <section className='w-full min-h-screen relative px-12 py-14 flex justify-between'>
+    <section className='w-full min-h-screen relative px-12 py-14 flex justify-between overflow-hidden '>
         <div className=' w-110 flex justify-end items-end '>
             <div className=' w-100 h-120 bg-center bg-no-repeat bg-cover'
             style={{
