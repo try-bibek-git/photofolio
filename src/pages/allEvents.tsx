@@ -10,7 +10,8 @@ const events = [
     title: "Sarah & Michael's Wedding",
     type: "Wedding",
     location: "The Grand Plaza, New York",
-    image: "/images/1-min.jpg",
+    // image: "/images/2-min.jpg",
+    image: "https://images.pexels.com/photos/758898/pexels-photo-758898.png",
     date: "June 15, 2025"
   },
   {
@@ -18,7 +19,7 @@ const events = [
     title: "Annual Corporate Gala",
     type: "Corporate",
     location: "Luxury Hotel, Boston",
-    image: "/images/4-min.jpg",
+    image: "https://images.pexels.com/photos/758898/pexels-photo-758898.png",
     date: "July 1, 2025"
   },
   {
@@ -26,7 +27,7 @@ const events = [
     title: "Emma's Sweet 16",
     type: "Birthday",
     location: "Garden Events, Miami",
-    image: "/images/2-min.jpg",
+    image: "https://images.pexels.com/photos/758898/pexels-photo-758898.png",
     date: "May 30, 2025"
   },
   {
@@ -34,7 +35,7 @@ const events = [
     title: "James & Emily's Wedding",
     type: "Conference",
     location: "Convention Center, SF",
-    image: "/images/8-min.jpg",
+    image: "https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg",
     date: "June 22, 2025"
   },
   {
@@ -42,7 +43,7 @@ const events = [
     title: "James & Emily's Wedding",
     type: "Fashion",
     location: "Milano Hall, LA",
-    image: "/images/7-min.jpg",
+    image: "https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg",
     date: "July 8, 2025"
   },
   {
@@ -50,7 +51,7 @@ const events = [
     title: "James & Emily's Wedding",
     type: "Wedding",
     location: "Beachfront Resort, Miami",
-    image: "/images/5-min.jpg",
+    image: "https://images.pexels.com/photos/948185/pexels-photo-948185.jpeg",
     date: "August 1, 2025"
   },
   {
@@ -58,7 +59,7 @@ const events = [
     title: "James & Emily's Wedding",
     type: "Wedding",
     location: "Beachfront Resort, Miami",
-    image: "/images/10-min.jpg",
+    image: "https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg",
     date: "August 1, 2025"
   },
   {
@@ -66,7 +67,7 @@ const events = [
     title: "James & Emily's Wedding",
     type: "Wedding",
     location: "Beachfront Resort, Miami",
-    image: "/images/11-min.jpg",
+    image: "https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg",
     date: "August 1, 2025"
   },
   {
@@ -74,7 +75,7 @@ const events = [
     title: "James & Emily's Wedding",
     type: "Wedding",
     location: "Beachfront Resort, Miami",
-    image: "/images/12-min.jpg",
+    image: "https://images.pexels.com/photos/1730877/pexels-photo-1730877.jpeg",
     date: "August 1, 2025"
   }
 ]
