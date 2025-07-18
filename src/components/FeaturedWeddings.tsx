@@ -39,28 +39,37 @@ const VideoCard: React.FC<VideoCardProps> = ({
                 alt={`${coupleNames} wedding`}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-black/20 transition-opacity duration-300 group-hover:bg-black/30" />
+            {/* Overlay with transition */}
+            <div className="absolute inset-0 bg-black/10 transition-all duration-500 group-hover:bg-black/60" />
+
+            {/* Play Button */}
             {hasPlayButton && (
                 <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-opacity-100">
-                        <Play className="w-7 h-7 text-gray-800 ml-1" fill="currentColor" />
+                    <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center transition-all duration-500 
+                        border border-white/30 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]
+                        group-hover:scale-110 group-hover:bg-white/30 group-hover:backdrop-blur-lg">
+                        <Play className="w-8 h-8 text-white drop-shadow-lg ml-1" fill="currentColor" />
                     </div>
                 </div>
             )}
-            <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
+
+            {/* Brand name - always visible */}
+            <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10">
                 <span className="text-white text-xs font-light tracking-[0.2em] uppercase">
                     The Timeless Tales
                 </span>
             </div>
-            <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-center">
-                <h3 className="text-white text-3xl md:text-4xl font-light tracking-wide">
-                    {coupleNames}
-                </h3>
-            </div>
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
-                <span className="text-white text-sm font-light tracking-wide">
-                    {location}
-                </span>
+
+            {/* Couple Details - Hidden initially, shown on hover */}
+            <div className="absolute inset-x-0 bottom-0 p-6 opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+                <div className="text-center">
+                    <h3 className="text-white text-3xl md:text-4xl font-light tracking-wide mb-2">
+                        {coupleNames}
+                    </h3>
+                    <span className="text-white/90 text-sm font-light tracking-wide">
+                        {location}
+                    </span>
+                </div>
             </div>
         </div>
     );
@@ -141,31 +150,31 @@ const FeaturedWeddings: React.FC = () => {
 
     const weddings = [
         {
-            coupleNames: 'TAMANA & DAN',
-            location: 'Tuscany, Italy',
-            imageUrl: 'https://picsum.photos/id/1011/800/450',
-            videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', 
+            coupleNames: 'VISHAL & KITRI',
+            location: 'Lonavala, India',
+            imageUrl: "https://i.ytimg.com/vi/IU_neJVQ3_U/maxresdefault.jpg",
+            videoUrl: 'https://www.youtube.com/embed/IU_neJVQ3_U?si=18UBHjA2tkjUtd9h', 
             hasPlayButton: true,
         },
         {
-            coupleNames: 'ALESIA & RAHUL',
-            location: 'Amalfi Coast, Italy',
-            imageUrl: 'https://picsum.photos/id/1015/800/450',
-            videoUrl: 'https://www.youtube.com/embed/zxNE4b8QyWk',
+            coupleNames: 'SINCHANA & SHASHANK',
+            location: 'Chikmagalur, India',
+            imageUrl: 'https://i.ytimg.com/vi_webp/H6ALfZ73nlo/maxresdefault.webp',
+            videoUrl: 'https://www.youtube.com/embed/H6ALfZ73nlo?si=H4abBvahZPcjKHYT',
             hasPlayButton: true,
         },
         {
-            coupleNames: 'MAYA & ALEX',
-            location: 'Santorini, Greece',
-            imageUrl: 'https://picsum.photos/id/1016/800/450',
-            videoUrl: 'https://youtube.com/embed/ZnUZ4AcyPXu1L1Ss',
+            coupleNames: 'ADITYA & TANVI',
+            location: 'Bangalore, India',
+            imageUrl: 'https://i.ytimg.com/vi_webp/mVCaB9kgn7k/maxresdefault.webp',
+            videoUrl: 'https://www.youtube.com/embed/mVCaB9kgn7k?si=6EhkHa8tTvJDxIM6',
             hasPlayButton: true,
         },
         {
-            coupleNames: 'ZINA & ZAIN',
-            location: 'Provence, France',
-            imageUrl: 'https://picsum.photos/id/1018/800/450',
-            videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+            coupleNames: 'VERNIKA & SHASAK',
+            location: 'Jammu & Kashmir, India',
+            imageUrl: 'https://i.ytimg.com/vi_webp/5ow9NGCZGsY/maxresdefault.webp',
+            videoUrl: 'https://www.youtube.com/embed/5ow9NGCZGsY?si=WTRZtyj1j5OmnLT5',
             hasPlayButton: true,
         },
     ];

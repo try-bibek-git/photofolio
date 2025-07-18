@@ -32,7 +32,7 @@ export default function YouTube() {
   }
 
   return (
-    <section className="w-full h-[50vh] flex items-center justify-center p-8 md:p-16">
+    <section className="w-full min-h-[50vh] flex items-center justify-center p-8 md:p-16">
       <div className="container mx-auto max-w-4xl text-center">
         {/* YouTube Icon & Title */}
         <div className="flex items-center justify-center mb-6">

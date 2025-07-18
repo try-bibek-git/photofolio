@@ -66,10 +66,10 @@ export default function Services() {
   }
 
   return (
-    <section className="w-full h-screen bg-[#F0E9E0] flex items-center justify-center p-8 md:p-16 relative overflow-hidden">
+    <section className="w-full min-h-screen bg-[#F0E9E0] py-20 md:py-24 px-4 sm:px-8 md:px-16 relative overflow-hidden">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-20">
           <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4 tracking-wide">Our Services</h2>
           <p className="text-[#613e07] text-lg max-w-xl mx-auto font-light leading-relaxed">
             Capturing your most precious moments with elegance and grace
@@ -84,7 +84,7 @@ export default function Services() {
             return (
               <div key={service.id} className="flex flex-col items-center">
                 {/* Circular Card */}
-                <div className="group relative w-80 h-80 rounded-full overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-500">
+                <div className="group relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-500">
                   {/* Carousel Container */}
                   <div className="absolute inset-0 overflow-hidden rounded-full">
                     {/* Images Container - Vertical Stack */}

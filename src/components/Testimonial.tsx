@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 const testimonials = [
   {
     id: 1,
-    name: "Arun Kumar",
+    name: "Sarah Johnson",
     event: "Wedding Photography",
     text: "Absolutely stunning work! Every moment was captured with such elegance and grace. The photos exceeded our expectations and we couldn't be happier.",
     image: "/placeholder.svg?height=80&width=80&text=Sarah",
@@ -13,31 +13,31 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "Sneha Sharma",
+    name: "Michael Chen",
     event: "Pre-Wedding Shoot",
     text: "Professional, creative, and so easy to work with. The pre-wedding photos turned out magical and perfectly captured our love story.",
     image: "/placeholder.svg?height=80&width=80&text=Michael",
-    rating: 4,
+    rating: 5,
   },
   {
     id: 3,
-    name: "Aman Raj Gupta",
+    name: "Emma Williams",
     event: "Engagement Session",
-    text: "The attention to detail is incredible. Every shot tells a story and the quality is simply outstanding. I loved it. Highly recommend!",
+    text: "The attention to detail is incredible. Every shot tells a story and the quality is simply outstanding. Highly recommend!",
     image: "/placeholder.svg?height=80&width=80&text=Emma",
     rating: 5,
   },
   {
     id: 4,
-    name: "Hardik Patel",
+    name: "David Rodriguez",
     event: "Wedding Photography",
     text: "From start to finish, the experience was seamless. The photographer captured not just images, but emotions and memories that will last forever.",
     image: "/placeholder.svg?height=80&width=80&text=David",
-    rating: 4,
+    rating: 5,
   },
   {
     id: 5,
-    name: "Sweta Srivastav",
+    name: "Sophie Anderson",
     event: "Pre-Wedding Shoot",
     text: "Creative vision combined with technical excellence. The photos are works of art that beautifully document our special moments.",
     image: "/placeholder.svg?height=80&width=80&text=Sophie",
@@ -45,7 +45,7 @@ const testimonials = [
   },
   {
     id: 6,
-    name: "Yash Jalan",
+    name: "James Thompson",
     event: "Engagement Session",
     text: "Exceptional service and breathtaking results. The photographer made us feel comfortable and the photos reflect pure joy and love.",
     image: "/placeholder.svg?height=80&width=80&text=James",
@@ -56,9 +56,26 @@ const testimonials = [
 export default function Testimonial() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [mounted, setMounted] = useState(false)
+  const [cardsPerView, setCardsPerView] = useState(3)
 
-  const cardsPerView = 3
-  const maxIndex = testimonials.length - cardsPerView
+  // Responsive cards per view
+  useEffect(() => {
+    const updateCardsPerView = () => {
+      if (window.innerWidth < 768) {
+        setCardsPerView(1) // Mobile: 1 card
+      } else if (window.innerWidth < 1024) {
+        setCardsPerView(2) // Tablet: 2 cards
+      } else {
+        setCardsPerView(3) // Desktop: 3 cards
+      }
+    }
+
+    updateCardsPerView()
+    window.addEventListener("resize", updateCardsPerView)
+    return () => window.removeEventListener("resize", updateCardsPerView)
+  }, [])
+
+  const maxIndex = Math.max(0, testimonials.length - cardsPerView)
 
   useEffect(() => {
     setMounted(true)
@@ -74,17 +91,26 @@ export default function Testimonial() {
     return () => clearInterval(interval)
   }, [mounted, maxIndex])
 
+  // Reset currentIndex if it exceeds maxIndex when screen size changes
+  useEffect(() => {
+    if (currentIndex > maxIndex) {
+      setCurrentIndex(0)
+    }
+  }, [currentIndex, maxIndex])
+
   if (!mounted) {
     return null
   }
 
   return (
-    <section className="w-full h-screen  flex items-center justify-center p-8 md:p-16 relative overflow-hidden">
+    <section className="w-full min-h-screen flex items-center justify-center p-4 md:p-8 lg:p-16">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4 tracking-wide">What Our Clients Say</h2>
-          <p className="text-[#613e07] text-lg max-w-xl mx-auto font-light leading-relaxed">
+        <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-2 md:mb-4 tracking-wide">
+            What Our Clients Say
+          </h2>
+          <p className="text-gray-600 text-base md:text-lg max-w-xl mx-auto font-light leading-relaxed px-4">
             Hear from couples who trusted us to capture their most precious moments
           </p>
         </div>
@@ -100,13 +126,17 @@ export default function Testimonial() {
               }}
             >
               {testimonials.map((testimonial) => (
-                <div key={testimonial.id} className="flex-shrink-0 px-4" style={{ width: `${100 / cardsPerView}%` }}>
+                <div
+                  key={testimonial.id}
+                  className="flex-shrink-0 px-2 md:px-4"
+                  style={{ width: `${100 / cardsPerView}%` }}
+                >
                   {/* Testimonial Card */}
-                  <div className="group bg-[#fffaf4] rounded-lg border border-gray-100 p-8 h-full shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-2">
+                  <div className="group bg-[#FFFAF4] rounded-lg   p-4 md:p-6 lg:p-8 h-full shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-2">
                     {/* Quote Icon */}
-                    <div className="mb-6">
+                    <div className="mb-4 md:mb-6">
                       <svg
-                        className="w-8 h-8 text-[#be8d24] group-hover:text-[#9D700F] transition-colors duration-300"
+                        className="w-6 h-6 md:w-8 md:h-8 text-gray-300 group-hover:text-[#9D700F] transition-colors duration-300"
                         fill="currentColor"
                         viewBox="0 0 24 24"
                       >
@@ -115,14 +145,14 @@ export default function Testimonial() {
                     </div>
 
                     {/* Testimonial Text */}
-                    <p className="text-gray-700 text-lg font-light leading-relaxed mb-8 group-hover:text-gray-900 transition-colors duration-300">
+                    <p className="text-gray-700 text-sm md:text-base lg:text-lg font-light leading-relaxed mb-6 md:mb-8 group-hover:text-gray-900 transition-colors duration-300">
                       "{testimonial.text}"
                     </p>
 
                     {/* Client Info */}
                     <div className="flex items-center">
                       {/* Client Photo */}
-                      <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden mr-3 md:mr-4 group-hover:scale-110 transition-transform duration-300">
                         <div
                           className="w-full h-full bg-gray-200"
                           style={{
@@ -135,10 +165,10 @@ export default function Testimonial() {
 
                       {/* Client Details */}
                       <div className="flex-1">
-                        <h4 className="text-gray-900 font-medium text-lg group-hover:text-black transition-colors duration-300">
+                        <h4 className="text-gray-900 font-medium text-base md:text-lg group-hover:text-black transition-colors duration-300">
                           {testimonial.name}
                         </h4>
-                        <p className="text-gray-500 text-sm font-light">{testimonial.event}</p>
+                        <p className="text-gray-500 text-xs md:text-sm font-light">{testimonial.event}</p>
                       </div>
 
                       {/* Rating Stars */}
@@ -146,7 +176,7 @@ export default function Testimonial() {
                         {[...Array(testimonial.rating)].map((_, i) => (
                           <svg
                             key={i}
-                            className="w-4 h-4 text-yellow-400 group-hover:text-yellow-500 transition-colors duration-300"
+                            className="w-3 h-3 md:w-4 md:h-4 text-yellow-400 group-hover:text-yellow-500 transition-colors duration-300"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                           >
@@ -162,7 +192,7 @@ export default function Testimonial() {
           </div>
 
           {/* Navigation Dots */}
-          <div className="flex justify-center mt-12 space-x-2">
+          <div className="flex justify-center mt-8 md:mt-12 space-x-2">
             {Array.from({ length: maxIndex + 1 }).map((_, index) => (
               <button
                 key={index}
@@ -175,8 +205,8 @@ export default function Testimonial() {
           </div>
 
           {/* Progress Indicator */}
-          <div className="text-center mt-6">
-            <span className="text-sm font-light text-gray-500 tracking-wide">
+          <div className="text-center mt-4 md:mt-6">
+            <span className="text-xs md:text-sm font-light text-gray-500 tracking-wide">
               {String(currentIndex + 1).padStart(2, "0")} / {String(maxIndex + 1).padStart(2, "0")}
             </span>
           </div>
