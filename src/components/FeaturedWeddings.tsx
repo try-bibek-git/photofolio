@@ -150,7 +150,7 @@ const FeaturedWeddings: React.FC = () => {
 
     const weddings = [
         {
-            coupleNames: 'VISHAL & KITRI',
+            coupleNames: 'VISHAL & KIRTI',
             location: 'Lonavala, India',
             imageUrl: "https://i.ytimg.com/vi/IU_neJVQ3_U/maxresdefault.jpg",
             videoUrl: 'https://www.youtube.com/embed/IU_neJVQ3_U?si=18UBHjA2tkjUtd9h', 
