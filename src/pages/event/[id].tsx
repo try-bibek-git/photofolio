@@ -30,7 +30,7 @@ function EventPage() {
     switch(eventType.toLowerCase()) {
       case 'wedding':
         return [
-          '/images/1-min.jpg',
+          '/images/1-min.webp',
           '/images/2-min.jpg',
           '/images/5-min.jpg',
           '/images/6-min.jpg',

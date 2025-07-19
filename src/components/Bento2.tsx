@@ -103,7 +103,7 @@ const images = [
   "/images/27-min.jpg",
   "/images/5-min.jpg",
   "/images/7-min.jpg",
-  "/images/21-min.jpg",
+  "/images/18-min.jpg",
   "/images/22-min.jpg",
   "/images/12-min.jpg",
 ];
