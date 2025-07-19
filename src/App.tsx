@@ -15,6 +15,7 @@ import Testimonial from './components/Testimonial'
 import YouTube from './components/youtube'
 import AllEvents from './pages/allEvents'
 import Contact from './pages/contactus'
+import EventPage from './pages/event/[id]'
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/allEvents" element={<AllEvents />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/event/:id" element={<EventPage />} />
     </Routes>
   )
 }

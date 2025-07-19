@@ -2,9 +2,10 @@
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useNavigate } from 'react-router-dom';
 
-// You can import events data from a separate file if available
-const events = [
+// Events data
+export const events = [
   {
     id: 1,
     title: "Sarah & Michael's Wedding",
@@ -81,6 +82,12 @@ const events = [
 ]
 
 export default function AllEvents() {
+  const navigate = useNavigate();
+
+  const handleEventClick = (eventId: number) => {
+    navigate(`/event/${eventId}`);
+  };
+
   return (
     <>
       <Navbar />
@@ -101,7 +108,8 @@ export default function AllEvents() {
           {events.map((event) => (
             <div 
               key={event.id} 
-              className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              onClick={() => handleEventClick(event.id)}
             >
               {/* Event Image */}
               <div className="relative h-[450px] w-full">

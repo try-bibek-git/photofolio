@@ -16,8 +16,14 @@ const BentoGrid = React.forwardRef<HTMLDivElement, { className?: string; childre
       <div
         ref={ref}
         className={cn(
-          "mx-auto grid max-w-7xl grid-cols-4 grid-rows-4 gap-2", 
-          "h-[1200px] w-full", 
+          "mx-auto grid w-full gap-2 sm:gap-3",
+          // Mobile: 2 columns, auto rows
+          "grid-cols-2 auto-rows-[200px] sm:auto-rows-[250px]",
+          // Tablet: 3 columns
+          "md:grid-cols-3 md:auto-rows-[280px]",
+          // Desktop: 4 columns, 4 rows with fixed height
+            "lg:grid-cols-4 lg:grid-rows-4 lg:auto-rows-[180px] xl:auto-rows-[200px]",
+          "max-w-[2000px]",
           className
         )}
       >

@@ -95,7 +95,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-medium text-black mb-0">Email</p>
-                      <p className="text-gray-600 mb-0">hello@studio.com</p>
+                      <p className="text-gray-600 mb-0">timelesstales@studio.com</p>
                     </div>
                   </div>
 
@@ -105,7 +105,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-medium text-black mb-0">Phone</p>
-                      <p className="text-gray-600 mb-0">+1 (555) 123-4567</p>
+                      <p className="text-gray-600 mb-0">(+91) 8721882202</p>
                     </div>
                   </div>
 
@@ -115,7 +115,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-medium text-black mb-0">Location</p>
-                      <p className="text-gray-600 mb-0">New York, NY</p>
+                      <p className="text-gray-600 mb-0">Jorhat, ASSAM</p>
                     </div>
                   </div>
 
@@ -178,7 +178,7 @@ const Contact = () => {
                         type="text"
                         required
                         className="input-field"
-                        placeholder="John Doe"
+                        placeholder="Your Name"
                       />
                     </div>
                     <div>
@@ -191,7 +191,7 @@ const Contact = () => {
                         type="email"
                         required
                         className="input-field"
-                        placeholder="john@example.com"
+                        placeholder="test@example.com"
                       />
                     </div>
                   </div>
@@ -206,7 +206,7 @@ const Contact = () => {
                         name="phone"
                         type="tel"
                         className="input-field"
-                        placeholder="+1 (555) 123-4567"
+                        placeholder="+91 1234567890"
                       />
                     </div>
                     <div>
@@ -231,9 +231,11 @@ const Contact = () => {
                       name="location"
                       type="text"
                       className="input-field"
-                      placeholder="New York, NY"
+                      placeholder="Kolkata, WB"
                     />
+                    
                   </div>
+                  
 
                   <div>
                     <label className="block text-sm font-[Garamond Pro] text-gray-700 mb-2 tracking-wide">
