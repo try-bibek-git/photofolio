@@ -13,35 +13,54 @@ const Contact = () => {
 
   useEffect(() => {
     const tl = gsap.timeline();
-    
+
     // Animate header first
-    tl.fromTo(headerRef.current, 
+    tl.fromTo(headerRef.current,
       { opacity: 0, y: 30 },
       { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }
     )
-    // Then animate info and form together
-    .fromTo([infoRef.current, formRef.current], 
-      { opacity: 0, y: 40 },
-      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.2 },
-      '-=0.3'
-    );
+      // Then animate info and form together
+      .fromTo([infoRef.current, formRef.current],
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.2 },
+        '-=0.3'
+      );
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-      
 
-      setTimeout(() => {
-        setSubmitted(false);
-      }, 5000);
-    }, 1500);
+    const form = e.currentTarget;
+    const fullName = form.fullName.value;
+    const email = form.email.value;
+    const phone = form.phone.value;
+    const eventDate = form.eventDate.value;
+    const location = form.location.value;
+    const message = form.message.value;
+
+    const whatsappMessage = `Hello! I'd love to inquire about photography services. Here's my info:\n
+     Name: ${fullName}
+     Email: ${email}
+     Phone: ${phone || "N/A"}
+     Event Date: ${eventDate || "TBD"}
+     Location: ${location || "TBD"}
+     Message:${message}`;
+
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+
+    // Replace with your WhatsApp number (in international format without +)
+    const phoneNumber = "918721882202";
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappURL, "_blank");
+
+    setIsSubmitting(false);
+    setSubmitted(true);
+
+    setTimeout(() => setSubmitted(false), 5000);
   };
+
 
   return (
     <>
@@ -56,7 +75,7 @@ const Contact = () => {
               <span className="block italic" style={{ color: '#B49E64' }}>Beautiful Together</span>
             </h1>
             <p className="text-gray-700 text-xl font-light max-w-2xl mx-auto leading-relaxed">
-              Every love story deserves to be told beautifully. Share your vision with us, 
+              Every love story deserves to be told beautifully. Share your vision with us,
               and let's bring your dreams to life through timeless photography.
             </p>
           </div>
@@ -68,7 +87,7 @@ const Contact = () => {
                 <h3 className="text-2xl font-[Playfair Display] font-normal text-black mb-6 tracking-tight leading-snug">
                   Get in Touch
                 </h3>
-                
+
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: '#B49E64' }}>
@@ -113,7 +132,7 @@ const Contact = () => {
               </div>
 
               <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-               <h4 className="text-xl font-[Playfair Display] font-normal text-black mb-4 leading-tight">
+                <h4 className="text-xl font-[Playfair Display] font-normal text-black mb-4 leading-tight">
 
                   What to Expect
                 </h4>
@@ -130,10 +149,10 @@ const Contact = () => {
                     <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#B49E64' }}></div>
                     <span>Professional guidance throughout the process</span>
                   </li>
-                    <li className="flex items-start space-x-3">
-                        <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#B49E64' }}></div>
-                        <span>Timely delivery of beautifully edited photos</span>
-                    </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#B49E64' }}></div>
+                    <span>Timely delivery of beautifully edited photos</span>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -141,7 +160,7 @@ const Contact = () => {
             {/* Contact Form */}
             <div ref={formRef} className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
               {!submitted ? (
-               <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <h3 className="text-2xl font-serif text-black mb-6">
                       Start Your Journey
@@ -155,6 +174,7 @@ const Contact = () => {
                         Full Name *
                       </label>
                       <input
+                        name="fullName"
                         type="text"
                         required
                         className="input-field"
@@ -167,6 +187,7 @@ const Contact = () => {
                         Email *
                       </label>
                       <input
+                        name="email"
                         type="email"
                         required
                         className="input-field"
@@ -182,17 +203,19 @@ const Contact = () => {
                         Phone Number
                       </label>
                       <input
+                        name="phone"
                         type="tel"
                         className="input-field"
                         placeholder="+1 (555) 123-4567"
                       />
                     </div>
                     <div>
-                     <label className="block text-sm font-[Garamond Pro] text-gray-700 mb-2 tracking-wide">
+                      <label className="block text-sm font-[Garamond Pro] text-gray-700 mb-2 tracking-wide">
 
                         Event Date
                       </label>
                       <input
+                        name="eventDate"
                         type="date"
                         className="input-field"
                       />
@@ -205,6 +228,7 @@ const Contact = () => {
                       Event Location
                     </label>
                     <input
+                      name="location"
                       type="text"
                       className="input-field"
                       placeholder="New York, NY"
@@ -212,11 +236,12 @@ const Contact = () => {
                   </div>
 
                   <div>
-                   <label className="block text-sm font-[Garamond Pro] text-gray-700 mb-2 tracking-wide">
+                    <label className="block text-sm font-[Garamond Pro] text-gray-700 mb-2 tracking-wide">
 
                       Tell us about your event *
                     </label>
                     <textarea
+                      name="message"
                       rows={5}
                       required
                       className="input-field resize-none"
@@ -254,7 +279,7 @@ const Contact = () => {
                     Thank You!
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Your message has been received. We're excited to learn about your story 
+                    Your message has been received. We're excited to learn about your story
                     and will be in touch within 24 hours to discuss your photography needs.
                   </p>
                 </div>

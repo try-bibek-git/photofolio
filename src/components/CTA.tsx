@@ -37,9 +37,9 @@ const CTA = () => {
 
       gsap.from('.cta-button', {
         opacity: 0,
-        y: 30,
+        y: 20,
         duration: 1,
-        delay: 0.6,
+        delay: 0.3,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: '.cta-button',
