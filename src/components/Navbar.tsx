@@ -55,31 +55,43 @@ const Navbar = () => {
         }`}
       >
         <div className="flex flex-col p-8 mt-16">
-          {['Photography', 'Films', 'Contact Us', 'Editorial', 'More'].map((link, index) => (
-            <a
+          {[
+            { name: 'Photography', path: '#' },
+            { name: 'Films', path: '#' },
+            { name: 'Editorial', path: '#' },
+            { name: 'Contact Us', path: '/contact' },
+            { name: 'About Us', path: '/aboutus' }
+          ].map((link, index) => (
+            <Link
               key={index}
-              href="#"
+              to={link.path}
               className="py-3 text-[#2c1e00] hover:text-[#7a6734] transition-colors duration-200 text-lg font-light tracking-wide"
               style={{ fontFamily: 'var(--font-body)' }}
               onClick={toggleMenu}
             >
-              {link}
-            </a>
+              {link.name}
+            </Link>
           ))}
         </div>
       </div>
 
       {/* Desktop Navigation */}
       <nav className="hidden lg:flex items-center space-x-8 text-sm font-[300] tracking-wide">
-        {['Photography', 'Films', 'Contact Us', 'Editorial', 'More'].map((link, index) => (
-          <a
+        {[
+          { name: 'Photography', path: '#' },
+          { name: 'Films', path: '#' },
+          { name: 'Editorial', path: '#' },
+          { name: 'Contact Us', path: '/contact' },
+          { name: 'About Us', path: '/aboutus' }
+        ].map((link, index) => (
+          <Link
             key={index}
-            href="#"
+            to={link.path}
             className="hover:underline transition text-[--color-text]"
             style={{ fontFamily: 'var(--font-body)' }}
           >
-            {link}
-          </a>
+            {link.name}
+          </Link>
         ))}
       </nav>
 
