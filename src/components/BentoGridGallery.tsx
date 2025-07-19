@@ -83,13 +83,13 @@ const BentoGridItem = ({
 };
 
 const images = [
-  "https://cdn.pixabay.com/photo/2022/09/03/18/53/newlyweds-7430219_1280.jpg",
-  "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_1280.jpg",
-  "https://cdn.pixabay.com/photo/2023/05/26/12/31/couple-8019370_1280.jpg",
-  "https://cdn.pixabay.com/photo/2013/07/30/12/25/bouquet-168831_1280.jpg",
-  "https://cdn.pixabay.com/photo/2023/05/30/10/10/wedding-8028145_1280.jpg",
-  "https://cdn.pixabay.com/photo/2024/02/28/14/01/woman-8602128_1280.png",
-  "https://cdn.pixabay.com/photo/2023/05/30/10/18/wedding-8028163_1280.jpg",
+  "/images/10-min.jpg",
+  "/images/16-min.jpg",
+  "/images/5-min.jpg",
+  "/images/7-min.jpg",
+  "/images/12-min.jpg",
+  "/images/18-min.jpg",
+  "/images/14-min.jpg",
 ];
 
 const BentoGridGallery = () => {
