@@ -9,56 +9,56 @@ const events = [
     title: "Sarah & Michael",
     type: "Wedding",
     location: "Tuscany, Italy",
-    image: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/images/1-min.jpg",
   },
   {
     id: 2,
     title: "Emma & James",
     type: "Pre-Wedding",
     location: "Paris, France",
-    image: "https://fetch.getnarrativeapp.com/static/b54b0964-daf7-4b32-af91-a25b9c62798d/VKR61348.jpg?w=1500",
+    image: "/images/6-min.jpg",
   },
   {
     id: 3,
     title: "Olivia & David",
     type: "Engagement",
     location: "New York, USA",
-    image: "https://images.unsplash.com/photo-1559982483-d1dff2e4a1b0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/images/17-min.jpg",
   },
   {
     id: 4,
     title: "Sophie & Alexander",
     type: "Wedding",
     location: "London, UK",
-    image: "https://fetch.getnarrativeapp.com/static/056a0f0c-d1a1-45ae-a9ed-c3ee9f1839b2/AYUS2387.jpg?w=1500",
+    image: "/images/20-min.jpg",
   },
   {
     id: 5,
     title: "Isabella & Lucas",
     type: "Pre-Wedding",
     location: "Santorini, Greece",
-    image: "https://fetch.getnarrativeapp.com/static/728c7768-a4f9-41a0-86f7-aa5da5ab1202/SHOW682.JPG.jpg?w=1500",
+    image: "/images/22-min.jpg",
   },
   {
     id: 6,
     title: "Charlotte & William",
     type: "Engagement",
     location: "Vienna, Austria",
-    image: "https://fetch.getnarrativeapp.com/static/d7a2548b-80a8-40c9-a1a6-a3d76eeb470b/ezgif.com-gif-maker-33.gif?w=1500",
+    image: "h/images/28-min.jpg",
   },
   {
     id: 7,
     title: "Amelia & Benjamin",
     type: "Wedding",
     location: "Bali, Indonesia",
-    image: "https://fetch.getnarrativeapp.com/static/202b9735-7d2c-43d6-a64b-1d4934477cf5/Exports-ZAFA6948.jpg?w=1500",
+    image: "/images/23-min.jpg",
   },
   {
     id: 8,
     title: "Grace & Henry",
     type: "Pre-Wedding",
     location: "Tokyo, Japan",
-    image: "https://fetch.getnarrativeapp.com/static/1b665277-ff97-47db-b1c2-9237f4579dc5/AJP_2745-2.jpg?w=1500",
+    image: "/images/8-min.jpg",
   },
 ]
 
@@ -86,23 +86,30 @@ export default function RecentWorks() {
   }
 
   return (
-    <section className="w-full min-h-screen  flex items-center justify-center p-8 md:p-16">
-      <div className="container mx-auto max-w-6xl">
+    <section className="w-full py-20 flex items-center justify-center bg-gradient-to-b from-[#F0E9E0] via-[#ffebd2] to-[#F0E9E0] overflow-x-hidden">
+      <div className="container mx-auto max-w-6xl px-4">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4 tracking-wide">Recent Works</h2>
-          <p className="text-[#875a17] text-lg max-w-xl mx-auto font-light leading-relaxed">
-            A glimpse into our latest captured moments and celebrations
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6 tracking-wide relative inline-block">
+            Recent Works  
+            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-0.5 bg-[#875a17]/30"></div>
+          </h2>
+          <p className="text-[#875a17] text-lg max-w-2xl mx-auto font-light leading-relaxed mt-8">
+            Each photograph tells a story, each moment captures an emotion. Explore our latest masterpieces.
           </p>
         </div>
 
         {/* Carousel Container */}
-        <div className="relative w-full max-w-4xl mx-auto">
+        <div className="relative w-full max-w-5xl mx-auto">
+          {/* Decorative Elements */}
+          <div className="absolute -top-6 -left-6 w-24 h-24 border-l-2 border-t-2 border-[#875a17]/30 overflow-hidden"></div>
+          <div className="absolute bottom-17 -right-6 w-24 h-24 border-r-2 border-b-2 border-[#875a17]/30 overflow-hidden"></div>
+          
           {/* Main Carousel */}
-          <div className="relative h-96 md:h-[500px] overflow-hidden rounded-lg shadow-xl">
+          <div className="relative h-[400px] md:h-[600px] overflow-hidden rounded-lg shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
             {/* Cards Container */}
             <div
-              className="flex h-full transition-transform duration-1000 ease-in-out"
+              className="flex h-full transition-transform duration-1000 ease-out"
               style={{
                 width: `${events.length * 100}%`,
                 transform: `translateX(-${(currentIndex * 100) / events.length}%)`,
@@ -172,12 +179,18 @@ export default function RecentWorks() {
           </div>
         </div>
         {/* All events Button */}
-        <div className="flex justify-center relative">
+            <div className="flex justify-center relative mt-12">
           <button 
             onClick={() => navigate('/allEvents')}
-            className="mt-8 px-6 py-3 bg-[#b89766] text-white rounded-md font-medium hover:bg-[#937b56] transition-colors duration-300"
+             className="group relative inline-flex items-center px-8 py-4 text-sm tracking-wider overflow-hidden border border-[#875a17] text-[#875a17] transition-all duration-300"
           >
-            View All Events
+            <span className="absolute inset-0 bg-[#875a17] translate-y-full transition-transform duration-300 group-hover:translate-y-0"></span>
+            <span className="relative group-hover:text-white transition-colors duration-300 flex items-center">
+              VIEW ALL EVENTS
+              <svg className="w-4 h-4 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
           </button>
         </div>
         

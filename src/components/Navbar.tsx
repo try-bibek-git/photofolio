@@ -78,7 +78,7 @@ const Navbar = () => {
       {/* Desktop Navigation */}
       <nav className="hidden lg:flex items-center space-x-8 text-sm font-[300] tracking-wide">
         {[
-          { name: 'Photography', path: '#' },
+          { name: 'Photography', path: '/allEvents' },
           { name: 'Films', path: '#' },
           { name: 'Editorial', path: '#' },
           { name: 'Contact Us', path: '/contact' },

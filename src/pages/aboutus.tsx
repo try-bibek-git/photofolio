@@ -172,8 +172,17 @@ export default function AboutUs() {
      <Header />
     <div className="w-full ">
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center p-4 md:p-8 lg:p-16">
-        <div className="container mx-auto max-w-6xl">
+      <section className="min-h-screen relative overflow-hidden flex items-center justify-center px-4">
+        <div className="absolute inset-0 bg-[#875a17]/5 backdrop-blur-3xl"></div>
+        <div 
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: 'radial-gradient(circle at 25px 25px, #875a17 2%, transparent 0%), radial-gradient(circle at 75px 75px, #875a17 2%, transparent 0%)',
+            backgroundSize: '100px 100px',
+          }}
+        ></div>
+        
+        <div className="container mx-auto max-w-6xl relative">
           <div
             id="hero"
             data-animate
@@ -181,41 +190,39 @@ export default function AboutUs() {
               visibleSections.has("hero") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 tracking-wide">
-              About {companyData.name}
+            <span className="inline-block text-[#875a17] text-sm tracking-wider mb-4 font-light">WELCOME TO</span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair text-gray-900 mb-6 tracking-wide">
+              {companyData.name}
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 font-light mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-[#875a17] font-garamond mb-16 max-w-3xl mx-auto leading-relaxed italic">
               {companyData.tagline}
             </p>
 
             {/* Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mt-16">
-              <div className="text-center group">
-                <div className="text-3xl md:text-4xl font-light text-gray-900 mb-2 group-hover:scale-110 transition-transform duration-300">
-                  {companyData.experience}
+              {[
+                { value: companyData.experience, label: "Experience" },
+                { value: companyData.weddingsCaptured, label: "Weddings Captured" },
+                { value: companyData.happyCouples, label: "Happy Couples" }
+              ].map((stat, index) => (
+                <div key={index} className="text-center group relative">
+                  <div className="absolute inset-0 bg-[#875a17]/5 rounded-xl -rotate-3 transform transition-transform duration-300 group-hover:rotate-0"></div>
+                  <div className="relative bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-sm border border-[#875a17]/10">
+                    <div className="text-4xl md:text-5xl font-playfair text-[#875a17] mb-2 group-hover:scale-110 transition-transform duration-300">
+                      {stat.value}
+                    </div>
+                    <div className="text-gray-600 font-garamond tracking-wide">{stat.label}</div>
+                  </div>
                 </div>
-                <div className="text-gray-600 font-light">Experience</div>
-              </div>
-              <div className="text-center group">
-                <div className="text-3xl md:text-4xl font-light text-gray-900 mb-2 group-hover:scale-110 transition-transform duration-300">
-                  {companyData.weddingsCaptured}
-                </div>
-                <div className="text-gray-600 font-light">Weddings Captured</div>
-              </div>
-              <div className="text-center group">
-                <div className="text-3xl md:text-4xl font-light text-gray-900 mb-2 group-hover:scale-110 transition-transform duration-300">
-                  {companyData.happyCouples}
-                </div>
-                <div className="text-gray-600 font-light">Happy Couples</div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Story Section */}
-      <section className="py-16 md:py-24 p-4 md:p-8 lg:p-16 ">
-        <div className="container mx-auto max-w-4xl">
+      <section className="py-24 md:py-32 relative overflow-hidden">
+        <div className="container mx-auto px-4">
           <div
             id="story"
             data-animate
@@ -223,15 +230,57 @@ export default function AboutUs() {
               visibleSections.has("story") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-8 text-center tracking-wide">
-              Our Story
-            </h2>
-            <p className="text-lg md:text-xl text-gray-700 font-light leading-relaxed mb-8 text-center">
-              {companyData.story}
-            </p>
-            <div className=" p-8 md:p-12 rounded-lg shadow-sm border border-gray-100">
-              <h3 className="text-xl md:text-2xl font-light text-gray-900 mb-4 text-center">Our Mission</h3>
-              <p className="text-gray-700 font-light leading-relaxed text-center">{companyData.mission}</p>
+            {/* Story Header */}
+            <div className="text-center mb-16">
+              <span className="inline-block text-[#875a17] text-sm tracking-wider mb-4 font-garamond">OUR JOURNEY</span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair text-gray-900 mb-8 tracking-wide relative inline-block">
+                Our Story
+                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-0.5 bg-[#875a17]/30"></div>
+              </h2>
+            </div>
+
+            {/* Story Content */}
+            <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+              {/* Left Side - Story */}
+              <div className="relative">
+                <div className="absolute -top-6 -left-6 w-24 h-24 border-l-2 border-t-2 border-[#875a17]/30"></div>
+                <div className="relative z-10 bg-white/80 backdrop-blur-sm p-8 md:p-10 rounded-xl shadow-lg border border-[#875a17]/10">
+                  <h3 className="text-2xl font-playfair text-[#875a17] mb-6">The Beginning</h3>
+                  <p className="text-gray-700 font-garamond leading-relaxed mb-6 italic">
+                    {companyData.story}
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <div className="h-0.5 flex-1 bg-gradient-to-r from-[#875a17]/20 to-transparent"></div>
+                    <span className="text-[#875a17] font-garamond">Est. 2018</span>
+                    <div className="h-0.5 flex-1 bg-gradient-to-l from-[#875a17]/20 to-transparent"></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Side - Mission */}
+              <div className="relative mt-12 md:mt-24">
+                <div className="absolute -top-6 -right-6 w-24 h-24 border-r-2 border-t-2 border-[#875a17]/30"></div>
+                <div className="relative z-10 bg-[#875a17]/5 backdrop-blur-sm p-8 md:p-10 rounded-xl border border-[#875a17]/10">
+                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm w-16 h-16 rounded-full flex items-center justify-center shadow-lg border border-[#875a17]/10">
+                    <svg className="w-8 h-8 text-[#875a17]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-playfair text-[#875a17] mb-6 text-center mt-4">Our Mission</h3>
+                  <p className="text-gray-700 font-garamond leading-relaxed text-center">
+                    {companyData.mission}
+                  </p>
+                  
+                  {/* Decorative Elements */}
+                  <div className="mt-8 grid grid-cols-3 gap-4">
+                    {['Moments', 'Emotions', 'Stories'].map((text, index) => (
+                      <div key={index} className="text-center">
+                        <span className="inline-block text-sm font-garamond text-[#875a17]/70 italic">{text}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -259,18 +308,24 @@ export default function AboutUs() {
                 key={value.id}
                 id={`value-${value.id}`}
                 data-animate
-                className={`group text-center p-6 rounded-lg hover:bg-gray-50 transition-all duration-500 hover:-translate-y-2 ${
+                className={`group relative p-8 rounded-xl bg-white/80 backdrop-blur-sm border border-[#875a17]/10 
+                          shadow-sm hover-lift ${
                   visibleSections.has(`value-${value.id}`) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
                 style={{ transitionDelay: `${400 + index * 100}ms` }}
               >
-                <div className="flex justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {renderIcon(value.icon)}
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#875a17] to-[#b89766] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-t-xl" />
+                
+                <div className="flex justify-center mb-6 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                  <div className="p-3 rounded-full bg-[#875a17]/10">
+                    {renderIcon(value.icon)}
+                  </div>
                 </div>
-                <h3 className="text-xl md:text-2xl font-light text-gray-900 mb-4 group-hover:text-black transition-colors duration-300">
+                
+                <h3 className="text-2xl font-playfair text-[#875a17] mb-4 text-center group-hover:text-[#b89766] transition-colors duration-300">
                   {value.title}
                 </h3>
-                <p className="text-gray-600 font-light leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                <p className="text-gray-600 font-garamond leading-relaxed text-center group-hover:text-gray-700 transition-colors duration-300">
                   {value.description}
                 </p>
               </div>
@@ -297,48 +352,55 @@ export default function AboutUs() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {teamMembers.map((member, index) => (
               <div
                 key={member.id}
                 id={`team-${member.id}`}
                 data-animate
-                className={`group  rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-4 ${
+                className={`group relative ${
                   visibleSections.has(`team-${member.id}`) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
                 style={{ transitionDelay: `${600 + index * 150}ms` }}
               >
-                {/* Avatar */}
-                <div className="relative overflow-hidden">
+                {/* Avatar with Border Animation */}
+                <div className="relative mb-6 mx-auto">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#875a17] via-[#b89766] to-[#875a17] animate-spin-slow opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-[3px] bg-white rounded-full" />
                   <div
-                    className="w-full h-80 bg-gray-200 group-hover:scale-110 transition-transform duration-700"
-                    style={{
-                      backgroundImage: `url(${member.avatar})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500" />
+                    className="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-white shadow-xl transform group-hover:scale-105 transition-transform duration-500"
+                  >
+                    <div
+                      className="w-full h-full bg-gray-200 group-hover:scale-110 transition-transform duration-700"
+                      style={{
+                        backgroundImage: `url(${member.avatar})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }}
+                    />
+                  </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-xl md:text-2xl font-light text-gray-900 mb-2 group-hover:text-black transition-colors duration-300">
+                <div className="text-center">
+                  <h3 className="text-2xl font-playfair text-[#875a17] mb-2 group-hover:text-[#b89766] transition-colors duration-300">
                     {member.name}
                   </h3>
-                  <p className="text-gray-600 font-light mb-4 text-sm md:text-base">{member.profession}</p>
-                  <p className="text-gray-700 font-light text-sm leading-relaxed mb-4 group-hover:text-gray-800 transition-colors duration-300">
+                  <p className="text-gray-600 font-garamond italic mb-4">{member.profession}</p>
+                  <p className="text-gray-700 font-garamond leading-relaxed mb-4 group-hover:text-gray-800 transition-colors duration-300">
                     {member.bio}
                   </p>
 
                   {/* Specialties */}
-                  <div className="space-y-1">
-                    <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Specialties</p>
-                    <div className="flex flex-wrap gap-1">
+                  <div className="space-y-3">
+                    <p className="text-xs font-garamond text-[#875a17] uppercase tracking-wider">Expertise</p>
+                    <div className="flex flex-wrap gap-2 justify-center">
                       {member.specialties.map((specialty, idx) => (
                         <span
                           key={idx}
-                          className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full group-hover:bg-gray-200 transition-colors duration-300"
+                          className="inline-block px-3 py-1 bg-[#875a17]/5 text-[#875a17] text-sm rounded-full 
+                                   border border-[#875a17]/10 group-hover:bg-[#875a17]/10 transition-colors duration-300
+                                   font-garamond"
                         >
                           {specialty}
                         </span>

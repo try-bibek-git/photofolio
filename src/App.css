@@ -1,1 +1,38 @@
 @import "tailwindcss";
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
+
+.font-playfair {
+  font-family: "Playfair Display", serif;
+}
+
+.font-garamond {
+  font-family: "AGaramondPro-Regular", serif;
+}
+
+/* Enhanced hover effects */
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-10px);
+}
+
+/* Gradient text effect */
+.text-gradient {
+  background: linear-gradient(45deg, #875a17, #b89766);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

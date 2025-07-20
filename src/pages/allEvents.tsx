@@ -95,7 +95,7 @@ export default function AllEvents() {
         {/* Header Section */}
       <div className="max-w-7xl mx-auto text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-light text-gray-900 mb-4 tracking-wide">
-          All Events
+          Our Photography Events
         </h1>
         <p className="text-[#875a17] text-lg max-w-2xl mx-auto font-light leading-relaxed">
           Explore our complete collection of beautifully captured moments and celebrations
